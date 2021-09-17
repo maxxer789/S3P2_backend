@@ -5,8 +5,8 @@ on:
     branches: 
     - main
     paths:
-    - ".\PostService/**"
-    - ".\PostService.Tests/**"
+    - "./PostService/**"
+    - "./PostService.Tests/**"
     - ".github/workflows/build-image-service.yml"
   pull_request:
     branches: 
