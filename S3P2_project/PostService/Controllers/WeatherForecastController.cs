@@ -13,7 +13,7 @@ namespace PostService.Controllers
     {
         private static readonly string[] Summaries = new[]
         {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching", "SKRRRRT"
+            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching", "Skrrrrt"
         };
 
         private readonly ILogger<WeatherForecastController> _logger;
