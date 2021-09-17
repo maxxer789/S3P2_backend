@@ -13,7 +13,7 @@ WORKDIR /src
 COPY ["PostService.csproj", "S3P2_project/PostService/"]
 RUN dotnet restore "S3P2_project/PostService/PostService.csproj"
 COPY . .
-WORKDIR "/src/PostService"
+WORKDIR "/src/S3P2_project"
 RUN dotnet build "PostService.csproj" -c Release -o /app/build
 
 FROM build AS publish
