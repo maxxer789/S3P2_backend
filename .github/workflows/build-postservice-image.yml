@@ -5,16 +5,16 @@ on:
     branches: 
     - main
     paths:
-    - "./PostService/**"
-    - "./PostService.Tests/**"
-    - "./.github/workflows/build-image-service.yml"
+    - "PostService/**"
+    - "PostService.Tests/**"
+    - ".github/workflows/build-image-service.yml"
   pull_request:
     branches: 
     - main
     paths:
-    - "./PostService/**"
-    - "./PostService.Tests/**"
-    - "./.github/workflows/build-image-service.yml"
+    - "PostService/**"
+    - "PostService.Tests/**"
+    - ".github/workflows/build-image-service.yml"
 
 env:
   PROJECT_PATH: 'PostService/PostService.csproj'
