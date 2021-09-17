@@ -9,8 +9,8 @@ on:
     - main
 
 env:
-  PROJECT_PATH: 'PostService/PostService.csproj'
-  TEST_PATH: 'PostService.Tests/PostService.Tests.csproj'
+  PROJECT_PATH: './PostService/PostService.csproj'
+  TEST_PATH: './PostService.Tests/PostService.Tests.csproj'
 
 jobs:
   build:
