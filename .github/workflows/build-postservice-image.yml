@@ -46,6 +46,6 @@ jobs:
     - name: Build and push
       uses: docker/build-push-action@v2
       with:
-        context: PostService
+        context: S3P2_project/PostService
         push: true
         tags: ${{ secrets.DOCKER_USERNAME }}/s3p2_backend:latest
