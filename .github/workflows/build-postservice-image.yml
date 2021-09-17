@@ -13,7 +13,7 @@ env:
   TEST_PATH: 'S3P2_project/PostService.Tests/PostService.Tests.csproj'
 
 jobs:
-  build:
+  -job: build
     runs-on: ubuntu-latest
     
     steps:
@@ -34,7 +34,7 @@ jobs:
     - name: Test
       run: dotnet test ${{ env.TEST_PATH }}
 
-  Docker:    
+  -job: Docker    
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v1
 
