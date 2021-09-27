@@ -4,6 +4,7 @@ on:
   push:
     branches: 
     - main
+    - Development
     path:
     - "S3P2_project/PostService/**"
     - "S3P2_project/PostService.Tests/**"
@@ -11,6 +12,7 @@ on:
   pull_request:
     branches: 
     - main
+    - Development
     path:
     - "S3P2_project/PostService/**"
     - "S3P2_project/PostService.Tests/**"
