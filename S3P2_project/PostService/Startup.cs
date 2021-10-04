@@ -22,10 +22,20 @@ namespace PostService
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsDevelopment", builder =>
+                {
+                    builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+                });
+            });
+
             services.AddDbContext<PostContext>(options =>
             {
                 options.UseSqlServer(Configuration.GetConnectionString("Connectionstring"));
             });
+
             services.AddScoped<IPostRepo, PostRepo>();
         }
 
@@ -40,6 +50,8 @@ namespace PostService
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors("CorsDevelopment");
 
             app.UseAuthorization();
 
