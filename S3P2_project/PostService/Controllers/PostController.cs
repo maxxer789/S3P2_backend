@@ -19,9 +19,19 @@ namespace PostService.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public IActionResult GetAllTasks()
+        public IActionResult GetAllPosts()
         {
             return Ok(_repo.GetPosts());
+        }
+
+        [HttpGet]
+        [Route("{id}"), ActionName("PostDetails")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public IActionResult GetPostById(int id)
+        {
+            return Ok(_repo.GetPostById(id));
         }
     }
 }

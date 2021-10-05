@@ -13,6 +13,11 @@ namespace PostService.Repositories
             _context = context;
         }
 
+        public Post GetPostById(int id)
+        {
+            return _context.Post.Where(p => p.Id == id).FirstOrDefault();
+        }
+
         public IEnumerable<Post> GetPosts()
         {
             return _context.Post.AsEnumerable();
