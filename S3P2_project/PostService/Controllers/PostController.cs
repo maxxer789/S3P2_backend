@@ -1,6 +1,9 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using AutoMapper;
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using PostService.Repositories;
+using PostService.Models.ViewModels;
 
 namespace PostService.Controllers
 {
@@ -9,8 +12,10 @@ namespace PostService.Controllers
     public class PostController : ControllerBase
     {
         private readonly IPostRepo _repo;
-        public PostController(IPostRepo postRepo)
+        private readonly IMapper _mapper;
+        public PostController(IPostRepo postRepo, IMapper mapper)
         {
+            _mapper = mapper;
             _repo = postRepo;
         }
 
@@ -21,7 +26,8 @@ namespace PostService.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public IActionResult GetAllPosts()
         {
-            return Ok(_repo.GetPosts());
+            ICollection<PostViewModel> posts = _mapper.Map<ICollection<PostViewModel>>(_repo.GetPosts());
+            return Ok(posts);
         }
 
         [HttpGet]
@@ -31,7 +37,8 @@ namespace PostService.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public IActionResult GetPostById(int id)
         {
-            return Ok(_repo.GetPostById(id));
+            PostViewModel post = _mapper.Map<PostViewModel>(_repo.GetPostById(id));
+            return Ok(post);
         }
     }
 }

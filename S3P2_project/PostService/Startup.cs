@@ -23,6 +23,9 @@ namespace PostService
         {
             services.AddControllers();
 
+            services.AddAutoMapper(typeof(Startup));
+            services.AddControllersWithViews();
+
             services.AddCors(options =>
             {
                 options.AddPolicy("CorsDevelopment", builder =>
