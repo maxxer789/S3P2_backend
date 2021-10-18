@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using PostService.Repositories;
 using PostService.Models.ViewModels;
+using PostService.Logic;
 
 namespace PostService.Controllers
 {
@@ -11,12 +12,10 @@ namespace PostService.Controllers
     [ApiController]
     public class PostController : ControllerBase
     {
-        private readonly IPostRepo _repo;
-        private readonly IMapper _mapper;
+        private PostLogic _logic;
         public PostController(IPostRepo postRepo, IMapper mapper)
         {
-            _mapper = mapper;
-            _repo = postRepo;
+            _logic = new PostLogic(postRepo, mapper);
         }
 
         [HttpGet]
@@ -26,7 +25,7 @@ namespace PostService.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public IActionResult GetAllPosts()
         {
-            ICollection<PostViewModel> posts = _mapper.Map<ICollection<PostViewModel>>(_repo.GetPosts());
+            ICollection<PostViewModel> posts = _logic.GetPosts();
             return Ok(posts);
         }
 
@@ -37,7 +36,7 @@ namespace PostService.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public IActionResult GetPostById(int id)
         {
-            PostViewModel post = _mapper.Map<PostViewModel>(_repo.GetPostById(id));
+            PostViewModel post = _logic.GetPostById(id);
             return Ok(post);
         }
     }
