@@ -8,7 +8,7 @@ using PostService.Logic;
 
 namespace PostService.Controllers
 {
-    [Route("[controller]")]
+    [Route("Posts")]
     [ApiController]
     public class PostController : ControllerBase
     {
@@ -19,10 +19,7 @@ namespace PostService.Controllers
         }
 
         [HttpGet]
-        [Route("all"), ActionName("PostOverview")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ActionName("PostOverview")]
         public IActionResult GetAllPosts()
         {
             ICollection<PostViewModel> posts = _logic.GetPosts();
@@ -31,13 +28,16 @@ namespace PostService.Controllers
 
         [HttpGet]
         [Route("{id}"), ActionName("PostDetails")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public IActionResult GetPostById(int id)
         {
             PostViewModel post = _logic.GetPostById(id);
-            return Ok(post);
+
+            if (post.Id > 0)
+            {
+                return Ok(post);
+            }
+
+            return NotFound();
         }
     }
 }

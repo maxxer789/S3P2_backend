@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.30523.141
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PostService", "PostService\PostService.csproj", "{9ABE4851-C625-4882-A14F-158AAB90C06A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PostService.Tests", "PostService.Tests\PostService.Tests.csproj", "{6D0E6360-2D74-472A-870E-8659E1C18B23}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PostService.Tests", "PostService.Tests\PostService.Tests.csproj", "{6D0E6360-2D74-472A-870E-8659E1C18B23}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountService", "AccountService\AccountService.csproj", "{3C8BC742-0AFA-4904-9A4F-D481A38BD62E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{6D0E6360-2D74-472A-870E-8659E1C18B23}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6D0E6360-2D74-472A-870E-8659E1C18B23}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6D0E6360-2D74-472A-870E-8659E1C18B23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C8BC742-0AFA-4904-9A4F-D481A38BD62E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C8BC742-0AFA-4904-9A4F-D481A38BD62E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C8BC742-0AFA-4904-9A4F-D481A38BD62E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C8BC742-0AFA-4904-9A4F-D481A38BD62E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
