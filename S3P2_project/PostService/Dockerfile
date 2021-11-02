@@ -15,7 +15,7 @@ WORKDIR /app
 COPY --from=build-env /app/out .
 ENTRYPOINT ["dotnet", "PostService.dll" ]
 
-ENV VPN_SERVER= ${{secrets.ANYCONNECT_SERVER}}
+ENV VPN_SERVER=${{secrets.ANYCONNECT_SERVER}}
 ENV VPN_LOGIN=${{secrets.ANYCONNECT_USER}}
 ENV VPN_PASSWORD=${{secrets.ANYCONNECT_PASSWORD}}
 
