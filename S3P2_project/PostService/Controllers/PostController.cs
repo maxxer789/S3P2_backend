@@ -22,15 +22,8 @@ namespace PostService.Controllers
         [ActionName("PostOverview")]
         public IActionResult GetAllPosts()
         {
-            try
-            {
-                ICollection<PostViewModel> posts = _logic.GetPosts();
-                return Ok(posts);
-            }
-            catch
-            {
-                return NotFound();
-            }
+            ICollection<PostViewModel> posts = _logic.GetPosts();
+            return Ok(posts);
         }
 
         [HttpGet]
