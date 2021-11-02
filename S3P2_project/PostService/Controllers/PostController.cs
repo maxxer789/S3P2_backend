@@ -39,5 +39,12 @@ namespace PostService.Controllers
 
             return NotFound();
         }
+
+        [HttpGet]
+        [Route("hallo"), ActionName("TestController")]
+        public IActionResult Hallo()
+        {
+            return Ok("hallo");
+        }
     }
 }
