@@ -34,10 +34,10 @@ namespace PostService
                 });
             });
 
-            services.AddDbContext<PostContext>(options =>
-            {
-                options.UseSqlServer(Configuration.GetConnectionString("Connectionstring"));
-            });
+            //services.AddDbContext<PostContext>(options =>
+            //{
+            //    options.UseSqlServer(Configuration.GetConnectionString("Connectionstring"));
+            //});
 
             services.AddScoped<IPostRepo, PostRepo>();
         }
