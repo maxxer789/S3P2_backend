@@ -12,3 +12,6 @@ sleep 5
 
 # Print IP
 curl http://api.ipify.org
+
+# Run your regular commands
+# ...
