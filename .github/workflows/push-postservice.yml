@@ -45,6 +45,3 @@ jobs:
         context: 'S3P2_project/PostService'
         push: true
         tags: ${{ secrets.DOCKER_USERNAME }}/s3p2_backend:latest
-        VPN_SERVER: ${{ secrets.ANYCONNECT_SERVER }}
-        VPN_LOGIN: ${{ secrets.ANYCONNECT_USER }}
-        VPN_PASSWORD: ${{ secrets.ANYCONNECT_PASSWORD }}
