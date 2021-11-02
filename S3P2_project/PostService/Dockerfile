@@ -19,4 +19,6 @@ ENV VPN_SERVER='server'
 ENV VPN_LOGIN='username'
 ENV VPN_PASSWORD='password'
 
+WORKDIR /app
+COPY connect.sh ./
 RUN apt-get update && apt-get install -y openvpn openconnect 
