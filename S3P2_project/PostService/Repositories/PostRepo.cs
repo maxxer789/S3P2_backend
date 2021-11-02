@@ -7,20 +7,22 @@ namespace PostService.Repositories
 {
     public class PostRepo : IPostRepo
     {
-        private readonly PostContext _context;
-        public PostRepo(PostContext context)
+        //private readonly PostContext _context;
+        public PostRepo()
         {
-            _context = context;
+            //_context = context;
         }
 
         public Post GetPostById(int id)
         {
-            return _context.Post.Where(p => p.Id == id).FirstOrDefault();
+            return new Post();
+            //return _context.Post.Where(p => p.Id == id).FirstOrDefault();
         }
 
         public IEnumerable<Post> GetPosts()
         {
-            return _context.Post.AsEnumerable();
+            return new List<Post>();
+            //return _context.Post.AsEnumerable();
         }
     }
 }
