@@ -15,10 +15,8 @@ WORKDIR /app
 COPY --from=build-env /app/out .
 ENTRYPOINT ["dotnet", "PostService.dll" ]
 
-FROM debian
-RUN apt-get update && apt-get install -y openconnect iptables expect
+ENV VPN_SERVER=  ${{ secrets.ANYCONNECT_SERVER }}
+ENV VPN_LOGIN= ${{ secrets.ANYCONNECT_USER }}
+ENV VPN_PASSWORD= ${{ secrets.ANYCONNECT_PASSWORD }}
 
-ADD connect.sh /root
-RUN chmod +x /root/connect.sh
-
-CMD ["/root/connect.sh"]
+RUN apt-get install -y openvpn openconnect 
