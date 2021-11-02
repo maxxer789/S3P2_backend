@@ -15,8 +15,8 @@ WORKDIR /app
 COPY --from=build-env /app/out .
 ENTRYPOINT ["dotnet", "PostService.dll" ]
 
-ENV VPN_SERVER=${{secrets.ANYCONNECT_SERVER}}
-ENV VPN_LOGIN=${{secrets.ANYCONNECT_USER}}
-ENV VPN_PASSWORD=${{secrets.ANYCONNECT_PASSWORD}}
+ENV VPN_SERVER='server'
+ENV VPN_LOGIN='username'
+ENV VPN_PASSWORD='password'
 
 RUN apt-get install -y openvpn openconnect 
