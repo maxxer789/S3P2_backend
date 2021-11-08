@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using PostService.Context;
+using PostService.HubConfig;
 using PostService.Repositories;
 
 namespace PostService
@@ -39,6 +40,11 @@ namespace PostService
                 options.UseSqlServer(Configuration.GetConnectionString("Connectionstring"));
             });
 
+            services.AddSignalR(options =>
+            {
+                options.EnableDetailedErrors = true;
+            });
+
             services.AddScoped<IPostRepo, PostRepo>();
         }
 
@@ -61,6 +67,7 @@ namespace PostService
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHub<MyHub>("/Messages");
             });
         }
     }
