@@ -7,7 +7,7 @@ else
 fi
 
 # Wait a little
-sleep 5
+sleep 10
 
 # Print IP
 curl http://api.ipify.org
