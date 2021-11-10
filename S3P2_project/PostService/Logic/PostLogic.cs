@@ -20,7 +20,7 @@ namespace PostService.Logic
         public ICollection<PostViewModel> GetPosts()
         {
             ICollection<Post> posts = _repo.GetPosts().ToList();
-            ICollection<PostViewModel> postViewModels = _mapper.Map<ICollection<PostViewModel>>(posts);
+            ICollection<PostViewModel> postViewModels = _mapper.Map<ICollection<PostViewModel>>(posts).ToList().AsReadOnly();
             return postViewModels;
         }
         public PostViewModel GetPostById(int id)
