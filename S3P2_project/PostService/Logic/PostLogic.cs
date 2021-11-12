@@ -17,6 +17,7 @@ namespace PostService.Logic
             _repo = repo;
             _mapper = mapper;
         }
+
         public ICollection<PostViewModel> GetPosts()
         {
             ICollection<Post> posts = _repo.GetPosts().ToList();

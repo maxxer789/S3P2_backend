@@ -13,9 +13,9 @@ namespace PostService.Controllers
     public class PostController : ControllerBase
     {
         private PostLogic _logic;
-        public PostController(IPostRepo postRepo, IMapper mapper)
+        public PostController(PostLogic logic)
         {
-            _logic = new PostLogic(postRepo, mapper);
+            _logic = logic;
         }
 
         [HttpGet]
