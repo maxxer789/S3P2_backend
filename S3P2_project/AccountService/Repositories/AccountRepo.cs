@@ -1,5 +1,6 @@
 ﻿using AccountService.Context;
 using AccountService.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,6 +23,12 @@ namespace AccountService.Repositories
                 return true;
             }
             return false;
+        }
+
+        public Account GetAccountFromId(int Id)
+        {
+            return _context.Accounts.Where(a => a.Id == Id).Include(ap => ap.Posts).FirstOrDefault();
+            //return _context.Accounts.SingleOrDefault(a => a.Id == Id);
         }
 
         public Account Login(Account account)

@@ -19,6 +19,11 @@ namespace AccountService.Logic
             _mapper = mapper;
         }
 
+        public AccountViewModel GetAccountFromId(int Id)
+        {
+            return _mapper.Map<AccountViewModel>(_repo.GetAccountFromId(Id));
+        }
+
         public AccountViewModel Login(AccountLoginViewModel accountLogin)
         {
             Account account = _repo.Login(_mapper.Map<Account>(accountLogin));

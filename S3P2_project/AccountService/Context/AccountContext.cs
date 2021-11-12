@@ -15,6 +15,7 @@ namespace AccountService.Context
         }
 
         public DbSet<Account> Accounts { get; set; }
+        public DbSet<AccountPost> AccountPosts { get; set; }
 
     }
 }

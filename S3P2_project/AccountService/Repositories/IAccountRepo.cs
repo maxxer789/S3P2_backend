@@ -10,6 +10,7 @@ namespace AccountService.Repositories
     {
         public Account Login(Account account);
         public Account Register(Account account);
+        public Account GetAccountFromId(int Id);
         public bool AccountExists(Account account);
     }
 }

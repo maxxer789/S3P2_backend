@@ -14,5 +14,7 @@ namespace AccountService.Models
         [Column(TypeName = "nvarchar(30)")]
         public string Username { get; set; }
         public string Password { get; set; }
+
+        public virtual ICollection<AccountPost> Posts { get; set; }
     }
 }

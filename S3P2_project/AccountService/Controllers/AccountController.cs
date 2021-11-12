@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using AccountService.Models.ViewModels;
 using AccountService.Logic;
+using System.Net.Http;
 
 namespace AccountService.Controllers
 {
@@ -16,6 +17,17 @@ namespace AccountService.Controllers
         public AccountController(AccountLogic logic)
         {
             _logic = logic;
+        }
+
+        [HttpGet, Route("{Id}")]
+        public IActionResult PostsFromAccount(int Id)
+        {
+            AccountViewModel account = _logic.GetAccountFromId(Id);
+            if(account != null)
+            {
+                return Ok(account);
+            }
+            return BadRequest("User doesn't exist");
         }
 
         [HttpPost]
