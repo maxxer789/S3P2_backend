@@ -21,4 +21,9 @@ ENV VPN_PASSWORD='password'
 
 WORKDIR /app
 COPY connect.sh ./
-RUN apt-get update && apt-get install -y openvpn openconnect 
+RUN apt-get update && apt-get install -y openvpn openconnect
+
+RUN sed -i 's/DEFAULT@SECLEVEL=2/DEFAULT@SECLEVEL=1/g' /etc/ssl/openssl.cnf
+RUN sed -i 's/MinProtocol = TLSv1.2/MinProtocol = TLSv1/g' /etc/ssl/openssl.cnf
+RUN sed -i 's/DEFAULT@SECLEVEL=2/DEFAULT@SECLEVEL=1/g' /usr/lib/ssl/openssl.cnf
+RUN sed -i 's/MinProtocol = TLSv1.2/MinProtocol = TLSv1/g' /usr/lib/ssl/openssl.cnf
