@@ -13,13 +13,13 @@ namespace PostService.HubConfig
         {
             string tempMessage = "The message was ";
 
-            if(message == "hey")
+            if (message != "hey")
             {
-                tempMessage += message;
+                tempMessage += "something else";
             }
             else
             {
-                tempMessage += "something else";
+                tempMessage += message;
             }
 
             await Clients.Clients(this.Context.ConnectionId).SendAsync("askServerResponse", tempMessage);

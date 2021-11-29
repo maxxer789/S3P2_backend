@@ -19,7 +19,8 @@ namespace AccountService.Controllers
             _logic = logic;
         }
 
-        [HttpGet, Route("{Id}")]
+        [HttpGet]
+        [Route("{Id}/Posts")]
         public IActionResult PostsFromAccount(int Id)
         {
             AccountViewModel account = _logic.GetAccountFromId(Id);
