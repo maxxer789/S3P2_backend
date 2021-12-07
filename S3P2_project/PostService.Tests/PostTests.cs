@@ -14,11 +14,13 @@ namespace PostService.Tests
     public class PostTests
     {
         private readonly PostLogic _logic;
-        public PostTests(IMapper mapper)
+        private readonly IMapper _mapper;
+        public PostTests()
         {   
             IPostRepo IPostRepo = new MockPostContext();
-            _logic = new PostLogic(IPostRepo, mapper);
+            _logic = new PostLogic(IPostRepo, _mapper);
         }
+
 
         [TestMethod]
         public void PostById_ValidId()

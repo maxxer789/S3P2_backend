@@ -1,5 +1,6 @@
 using AccountService.Context;
 using AccountService.Logic;
+using AccountService.Models;
 using AccountService.Repositories;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -25,6 +26,8 @@ namespace AccountService
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.Configure<TokenSettings>(Configuration.GetSection("SecretKeys"));
+
             services.AddControllers();
 
             services.AddAutoMapper(typeof(Startup));
@@ -78,6 +81,8 @@ namespace AccountService
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors("CorsDevelopment");
 
             app.UseAuthorization();
 

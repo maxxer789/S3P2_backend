@@ -6,6 +6,12 @@ using Microsoft.AspNetCore.Mvc;
 using AccountService.Models.ViewModels;
 using AccountService.Logic;
 using System.Net.Http;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using AccountService.Models;
+using Microsoft.Extensions.Options;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 
 namespace AccountService.Controllers
 {
@@ -14,9 +20,11 @@ namespace AccountService.Controllers
     public class AccountController : Controller
     {
         private readonly AccountLogic _logic;
-        public AccountController(AccountLogic logic)
+        private readonly TokenSettings _tokenSettings;
+        public AccountController(AccountLogic logic, IOptions<TokenSettings> tokenSettings)
         {
             _logic = logic;
+            _tokenSettings = tokenSettings.Value;
         }
 
         [HttpGet]
@@ -39,7 +47,19 @@ namespace AccountService.Controllers
 
             if (Account != null)
             {
-                return Ok(Account);
+                SymmetricSecurityKey secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_tokenSettings.JWTKey.ToString()));
+                SigningCredentials credentials = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
+
+                JwtSecurityToken token = new JwtSecurityToken(
+                    issuer: "https://localhost:5001",
+                    audience: "https://localhost:5001",
+                    claims: new List<Claim>(),
+                    expires: DateTime.Now.AddHours(1),
+                    signingCredentials: credentials
+                    );
+
+                string tokenString = new JwtSecurityTokenHandler().WriteToken(token);
+                return Ok(new { tokenString });
             }
 
             return BadRequest("User doesn't Exist");
