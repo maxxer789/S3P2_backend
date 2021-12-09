@@ -16,11 +16,17 @@ namespace PostService.Tests
         private readonly PostLogic _logic;
         private readonly IMapper _mapper;
         public PostTests()
-        {   
+        {
+            MapperConfiguration config = new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<Post, PostViewModel>();
+            });
+
+            _mapper = new Mapper(config);
+
             IPostRepo IPostRepo = new MockPostContext();
             _logic = new PostLogic(IPostRepo, _mapper);
         }
-
 
         [TestMethod]
         public void PostById_ValidId()
