@@ -1,0 +1,12 @@
+e
+\C:\Users\Max\Documents\GitHub\S3P2_backend\S3P2_project\GroupService\Context\GroupContext.csutf-8l
+cC:\Users\Max\Documents\GitHub\S3P2_backend\S3P2_project\GroupService\Controllers\GroupController.csutf-8k
+bC:\Users\Max\Documents\GitHub\S3P2_backend\S3P2_project\GroupService\HubConfig\GroupMessagesHub.csutf-8a
+XC:\Users\Max\Documents\GitHub\S3P2_backend\S3P2_project\GroupService\Logic\GroupLogic.csutf-8X
+OC:\Users\Max\Documents\GitHub\S3P2_backend\S3P2_project\GroupService\Program.csutf-8g
+^C:\Users\Max\Documents\GitHub\S3P2_backend\S3P2_project\GroupService\Repositories\GroupRepo.csutf-8h
+_C:\Users\Max\Documents\GitHub\S3P2_backend\S3P2_project\GroupService\Repositories\IGroupRepo.csutf-8X
+OC:\Users\Max\Documents\GitHub\S3P2_backend\S3P2_project\GroupService\Startup.csutf-8`
+WC:\Users\Max\Documents\GitHub\S3P2_backend\S3P2_project\GroupService\WeatherForecast.csutf-8—
+‹C:\Users\Max\Documents\GitHub\S3P2_backend\S3P2_project\GroupService\obj\Debug\netcoreapp3.1\.NETCoreApp,Version=v3.1.AssemblyAttributes.csutf-8„
+yC:\Users\Max\Documents\GitHub\S3P2_backend\S3P2_project\GroupService\obj\Debug\netcoreapp3.1\GroupService.AssemblyInfo.csutf-8

@@ -1,0 +1,14 @@
+﻿C:\Users\Max\Documents\GitHub\S3P2_backend\S3P2_project\GroupService\Context\GroupContext.cs
+C:\Users\Max\Documents\GitHub\S3P2_backend\S3P2_project\GroupService\Controllers\GroupController.cs
+C:\Users\Max\Documents\GitHub\S3P2_backend\S3P2_project\GroupService\HubConfig\GroupMessagesHub.cs
+C:\Users\Max\Documents\GitHub\S3P2_backend\S3P2_project\GroupService\Logic\GroupLogic.cs
+C:\Users\Max\Documents\GitHub\S3P2_backend\S3P2_project\GroupService\Program.cs
+C:\Users\Max\Documents\GitHub\S3P2_backend\S3P2_project\GroupService\Repositories\GroupRepo.cs
+C:\Users\Max\Documents\GitHub\S3P2_backend\S3P2_project\GroupService\Repositories\IGroupRepo.cs
+C:\Users\Max\Documents\GitHub\S3P2_backend\S3P2_project\GroupService\Startup.cs
+C:\Users\Max\Documents\GitHub\S3P2_backend\S3P2_project\GroupService\WeatherForecast.cs
+C:\Users\Max\Documents\GitHub\S3P2_backend\S3P2_project\GroupService\obj\Debug\netcoreapp3.1\.NETCoreApp,Version=v3.1.AssemblyAttributes.cs
+C:\Users\Max\Documents\GitHub\S3P2_backend\S3P2_project\GroupService\obj\Debug\netcoreapp3.1\GroupService.AssemblyInfo.cs
+C:\Users\Max\Documents\GitHub\S3P2_backend\S3P2_project\GroupService\appsettings.Development.json
+C:\Users\Max\Documents\GitHub\S3P2_backend\S3P2_project\GroupService\appsettings.json
+C:\Users\Max\Documents\GitHub\S3P2_backend\S3P2_project\GroupService\Properties\launchSettings.json

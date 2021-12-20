@@ -1,0 +1,17 @@
+c
+ZC:\Users\Max\Documents\GitHub\S3P2_backend\S3P2_project\PostService\Context\PostContext.csutf-8j
+aC:\Users\Max\Documents\GitHub\S3P2_backend\S3P2_project\PostService\Controllers\PostController.csutf-8_
+VC:\Users\Max\Documents\GitHub\S3P2_backend\S3P2_project\PostService\Logic\PostLogic.csutf-8q
+hC:\Users\Max\Documents\GitHub\S3P2_backend\S3P2_project\PostService\Migrations\20211001114136_AddPost.csutf-8|
+qC:\Users\Max\Documents\GitHub\S3P2_backend\S3P2_project\PostService\Migrations\20211001114136_AddPost.Designer.csutf-8u
+jC:\Users\Max\Documents\GitHub\S3P2_backend\S3P2_project\PostService\Migrations\PostContextModelSnapshot.csutf-8^
+UC:\Users\Max\Documents\GitHub\S3P2_backend\S3P2_project\PostService\Models\Message.csutf-8[
+RC:\Users\Max\Documents\GitHub\S3P2_backend\S3P2_project\PostService\Models\Post.csutf-8o
+fC:\Users\Max\Documents\GitHub\S3P2_backend\S3P2_project\PostService\Models\ViewModels\PostViewModel.csutf-8d
+[C:\Users\Max\Documents\GitHub\S3P2_backend\S3P2_project\PostService\Profiles\PostProfile.csutf-8W
+NC:\Users\Max\Documents\GitHub\S3P2_backend\S3P2_project\PostService\Program.csutf-8f
+]C:\Users\Max\Documents\GitHub\S3P2_backend\S3P2_project\PostService\Repositories\IPostRepo.csutf-8e
+\C:\Users\Max\Documents\GitHub\S3P2_backend\S3P2_project\PostService\Repositories\PostRepo.csutf-8W
+NC:\Users\Max\Documents\GitHub\S3P2_backend\S3P2_project\PostService\Startup.csutf-8–
+ŠC:\Users\Max\Documents\GitHub\S3P2_backend\S3P2_project\PostService\obj\Debug\netcoreapp3.1\.NETCoreApp,Version=v3.1.AssemblyAttributes.csutf-8‚
+wC:\Users\Max\Documents\GitHub\S3P2_backend\S3P2_project\PostService\obj\Debug\netcoreapp3.1\PostService.AssemblyInfo.csutf-8
