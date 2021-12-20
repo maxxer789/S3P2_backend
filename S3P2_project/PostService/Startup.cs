@@ -5,7 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using PostService.Context;
-using PostService.HubConfig;
+using PostService.Logic;
 using PostService.Repositories;
 
 namespace PostService
@@ -40,12 +40,8 @@ namespace PostService
                 options.UseSqlServer(Configuration.GetConnectionString("Connectionstring"));
             });
 
-            services.AddSignalR(options =>
-            {
-                options.EnableDetailedErrors = true;
-            });
-
             services.AddScoped<IPostRepo, PostRepo>();
+            services.AddScoped<PostLogic>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -67,7 +63,6 @@ namespace PostService
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
-                endpoints.MapHub<MyHub>("/Messages");
             });
         }
     }

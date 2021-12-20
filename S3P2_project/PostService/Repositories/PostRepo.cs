@@ -18,9 +18,9 @@ namespace PostService.Repositories
             return _context.Post.Where(p => p.Id == id).FirstOrDefault();
         }
 
-        public IEnumerable<Post> GetPosts()
+        public IReadOnlyList<Post> GetPosts()
         {
-            return _context.Post.AsEnumerable();
+            return _context.Post.AsEnumerable().ToList().AsReadOnly();
         }
     }
 }
