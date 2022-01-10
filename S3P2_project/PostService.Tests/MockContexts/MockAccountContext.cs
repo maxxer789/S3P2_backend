@@ -17,7 +17,7 @@ namespace Service.Tests.MockContexts
 
         public bool AccountExists(Account account)
         {
-           return MockAccounts.SingleOrDefault(a => a.Id == account.Id) != null;
+           return MockAccounts.SingleOrDefault(a => a.Username == account.Username) != null;
         }
 
         public Account GetAccountFromId(int Id)

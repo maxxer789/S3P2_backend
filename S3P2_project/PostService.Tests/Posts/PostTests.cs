@@ -6,7 +6,7 @@ using PostService.Models.ViewModels;
 using PostService.Repositories;
 using Service.Tests.MockContexts;
 
-namespace Service.Tests
+namespace Service.Tests.Posts
 {
     [TestClass]
     public class PostTests
