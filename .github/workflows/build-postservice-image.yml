@@ -19,7 +19,7 @@ on:
 
 env:
   PROJECT_PATH: 'S3P2_project/PostService/PostService.csproj'
-  TEST_PATH: 'S3P2_project/PostService.Tests/PostService.Tests.csproj'
+  TEST_PATH: 'S3P2_project/PostService.Tests/Service.Tests.csproj'
 
 jobs:
   build:
