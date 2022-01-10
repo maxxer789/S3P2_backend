@@ -1,14 +1,12 @@
 using AutoMapper;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using PostService.Context;
 using PostService.Logic;
 using PostService.Models;
 using PostService.Models.ViewModels;
 using PostService.Repositories;
-using PostService.Profiles;
-using PostService.Tests.MockContexts;
+using Service.Tests.MockContexts;
 
-namespace PostService.Tests
+namespace Service.Tests
 {
     [TestClass]
     public class PostTests
