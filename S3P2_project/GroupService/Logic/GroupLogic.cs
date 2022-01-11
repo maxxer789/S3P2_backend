@@ -2,10 +2,6 @@
 using GroupService.Models;
 using GroupService.Models.ViewModels;
 using GroupService.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace GroupService.Logic
 {
