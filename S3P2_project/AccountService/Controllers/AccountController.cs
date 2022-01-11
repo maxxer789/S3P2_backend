@@ -52,9 +52,10 @@ namespace AccountService.Controllers
                 SigningCredentials credentials = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
 
                 JwtSecurityToken token = new JwtSecurityToken(
-                    claims: new List<Claim>(),
-                    issuer: "https://localhost:5001",
-                    audience: "https://localhost:5001",
+                    claims: new List<Claim>()
+                    {
+                        new Claim("subject", Account.Id.ToString()),
+                    },
                     expires: DateTime.Now.AddHours(1),
                     signingCredentials: credentials
                     );

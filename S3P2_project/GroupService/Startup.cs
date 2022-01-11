@@ -66,8 +66,6 @@ namespace GroupService
                     ValidateLifetime = true,
                     ValidateIssuerSigningKey = true,
 
-                    ValidIssuer = "https://localhost:5001",
-                    ValidAudience = "https://localhost:5001",
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration.GetSection("SecretKeys")["JWTKey"])),
                 };
             });
