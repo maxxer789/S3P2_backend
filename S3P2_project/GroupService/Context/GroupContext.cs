@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using GroupService.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,5 +13,7 @@ namespace GroupService.Context
         {
 
         }
+        public virtual DbSet<Group> Groups { get; set; }
+        public virtual DbSet<Message> GroupMessages { get; set; }
     }
 }
