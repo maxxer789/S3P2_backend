@@ -1,5 +1,6 @@
 ﻿using GroupService.Context;
 using GroupService.Models;
+using Microsoft.EntityFrameworkCore;
 using System.Linq;
 
 namespace GroupService.Repositories
@@ -10,6 +11,10 @@ namespace GroupService.Repositories
         public GroupRepo(GroupContext context)
         {
             _context = context;
+        }
+        public Group GetGroup(int id)
+        {
+            return _context.Groups.Where(g => g.Id == id).Include(g => g.Messages).SingleOrDefault();
         }
 
         public Group CreateGroup(string name)
@@ -25,6 +30,13 @@ namespace GroupService.Repositories
             return newGroup;
         }
 
+        public Group EditGroup(Group group)
+        {
+            _context.Groups.Update(group);
+            _context.SaveChanges();
+            return group;
+        }
+
         public bool DeleteGroup(int Id)
         {
             Group toBeDeleted = GetGroup(Id);
@@ -37,16 +49,5 @@ namespace GroupService.Repositories
             return false;
         }
 
-        public Group EditGroup(Group group)
-        {
-            _context.Groups.Update(group);
-            _context.SaveChanges();
-            return group;
-        }
-
-        public Group GetGroup(int id)
-        {
-            return _context.Groups.SingleOrDefault(g => g.Id == id);
-        }
     }
 }

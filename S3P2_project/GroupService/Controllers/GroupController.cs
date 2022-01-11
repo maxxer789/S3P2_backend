@@ -17,7 +17,7 @@ namespace GroupService.Controllers
 
         [HttpGet]
         [Route("{Id}")]
-        public IActionResult Index(int Id)
+        public IActionResult GetGroup(int Id)
         {
             GroupViewModel group = _logic.GetGroup(Id);
 
@@ -29,9 +29,16 @@ namespace GroupService.Controllers
             return NotFound($"Group with Id:{Id} not found");
         }
 
+        [HttpPost]
+        public IActionResult CreateGroup([FromBody] GroupCreationViewModel groupCreationViewModel)
+        {
+            GroupViewModel newGroup = _logic.CreateGroup(groupCreationViewModel);
+            return Ok(newGroup);
+        }
+
         [HttpPut]
         [Route("{Id}")]
-        public IActionResult UpdateGroup([FromBody] GroupViewModel groupViewModel)
+        public IActionResult EditGroup([FromBody] GroupViewModel groupViewModel)
         {
             groupViewModel = _logic.EditGroup(groupViewModel);
 
@@ -45,20 +52,14 @@ namespace GroupService.Controllers
 
         [HttpDelete]
         [Route("{Id}")]
-        public IActionResult DeleteGroup([FromBody] GroupViewModel groupViewModel)
+        public IActionResult DeleteGroup(int Id)
         {
-            if (_logic.DeleteGroup(groupViewModel.Id))
+            if (_logic.DeleteGroup(Id))
             {
-                return Ok(groupViewModel);
+                return Ok();
             }
 
-            return NotFound($"Group with Id:{groupViewModel.Id} not found");
-        }
-        [HttpPost]
-        public IActionResult CreateGroup([FromBody] GroupCreationViewModel groupCreationViewModel)
-        {
-            GroupViewModel newGroup = _logic.CreateGroup(groupCreationViewModel);
-            return Ok(newGroup);
+            return NotFound($"Group with Id:{Id} not found");
         }
     }
 }

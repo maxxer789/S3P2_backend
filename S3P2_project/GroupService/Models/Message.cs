@@ -12,10 +12,7 @@ namespace GroupService.Models
         [Key]
         public int Id { get; set; }
         public int UserId { get; set; }
-        [ForeignKey("Group")]
-        public int GroupId { get; set; }
         [MaxLength(150)]
         public string Text { get; set; }
-        public Group Group { get; set; }
     }
 }
