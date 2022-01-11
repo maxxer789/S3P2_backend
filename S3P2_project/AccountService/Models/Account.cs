@@ -16,5 +16,6 @@ namespace AccountService.Models
         public string Password { get; set; }
 
         public virtual ICollection<AccountPost> Posts { get; set; }
+        public ICollection<AccountGroup> Groups { get; set; }
     }
 }

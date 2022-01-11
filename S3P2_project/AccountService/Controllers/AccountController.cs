@@ -12,6 +12,7 @@ using AccountService.Models;
 using Microsoft.Extensions.Options;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AccountService.Controllers
 {
@@ -51,15 +52,15 @@ namespace AccountService.Controllers
                 SigningCredentials credentials = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
 
                 JwtSecurityToken token = new JwtSecurityToken(
+                    claims: new List<Claim>(),
                     issuer: "https://localhost:5001",
                     audience: "https://localhost:5001",
-                    claims: new List<Claim>(),
                     expires: DateTime.Now.AddHours(1),
                     signingCredentials: credentials
                     );
 
                 string tokenString = new JwtSecurityTokenHandler().WriteToken(token);
-                return Ok(new { tokenString });
+                return Ok(new { Token = tokenString });
             }
 
             return BadRequest("User doesn't Exist");

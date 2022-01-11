@@ -1,5 +1,6 @@
 ﻿using GroupService.Logic;
 using GroupService.Models.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GroupService.Controllers
