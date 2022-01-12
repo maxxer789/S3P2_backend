@@ -1,4 +1,4 @@
-name: Push postservice
+name: Push AccountService
 
 on:
   push:
@@ -44,4 +44,4 @@ jobs:
       with:
         context: 'S3P2_project/AccountService'
         push: true
-        tags: ${{ secrets.DOCKER_USERNAME }}/s3p2_accountBackend:latest
+        tags: ${{ secrets.DOCKER_USERNAME }}/s3p2_accountbackend:latest
