@@ -1,0 +1,17 @@
+name: CodeQuality Scan
+on:
+  pull_request:
+    branches: 
+    - main
+    - Development
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@master
+    - name: SonarQube Scan
+      uses: kitabisa/sonarqube-action@v1.1.1
+      with:
+        host: localhost:9000
+        login: ${{secrets.SONARQUBE_TOKEN}}
