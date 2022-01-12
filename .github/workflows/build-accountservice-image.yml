@@ -1,0 +1,44 @@
+name: Build Postservice
+
+on:
+  push:
+    branches: 
+    - main
+    - Development
+    path:
+    - "S3P2_project/AccountService/**"
+    - "S3P2_project/PostService.Tests/**"
+    - ".github/workflows/build-accountservice-image.yml"
+  pull_request:
+    branches: 
+    - main
+    - Development
+    path:
+    - "S3P2_project/AccountService/**"
+    - "S3P2_project/PostService.Tests/**"
+
+env:
+  PROJECT_PATH: 'S3P2_project/AccountService/AccountService.csproj'
+  TEST_PATH: 'S3P2_project/PostService.Tests/Service.Tests.csproj'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1
+        
+    - name: Restore dependencies
+      run: dotnet restore ${{ env.PROJECT_PATH }}
+      
+    - name: Build
+      run: dotnet build ${{ env.PROJECT_PATH }} --no-restore --configuration Release
+      
+    - name: Test
+      run: dotnet test ${{ env.TEST_PATH }}
