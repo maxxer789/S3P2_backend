@@ -1,19 +1,24 @@
-name: CodeQuality Scan
+name: Code Quality Scan
 on:
+  # Trigger analysis when pushing in master or pull requests, and when creating
+  # a pull request. 
+  push:
+    branches:
+      - master
   pull_request:
-    branches: 
-    - main
-    - Development
+      types: [opened, synchronize, reopened]
+
+name: Main Workflow
 jobs:
-  scan:
+  sonarqube:
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@master
-    - name: SonarQube Scan
-      uses: kitabisa/sonarqube-action@v1.1.0
+    - uses: actions/checkout@v2
       with:
-        host: "http://localhost:9000"
-        login: ${{secrets.SONARQUBE_TOKEN}}
-        projectKey: "S3I_project"
-
+        # Disabling shallow clone is recommended for improving relevancy of reporting
+        fetch-depth: 0
+    - name: SonarQube Scan
+      uses: sonarsource/sonarqube-scan-action@master
+      env:
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        SONAR_HOST_URL: http://localhost:9000
