@@ -33,10 +33,12 @@ namespace AccountService.Controllers
         public IActionResult PostsFromAccount(int Id)
         {
             AccountViewModel account = _logic.GetAccountFromId(Id);
+
             if(account != null)
             {
                 return Ok(account);
             }
+
             return BadRequest("User doesn't exist");
         }
 
