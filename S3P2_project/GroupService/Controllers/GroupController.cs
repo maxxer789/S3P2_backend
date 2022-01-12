@@ -33,6 +33,7 @@ namespace GroupService.Controllers
         public IActionResult CreateGroup([FromBody] GroupCreationViewModel groupCreationViewModel)
         {
             GroupViewModel newGroup = _logic.CreateGroup(groupCreationViewModel);
+
             return Ok(newGroup);
         }
 
