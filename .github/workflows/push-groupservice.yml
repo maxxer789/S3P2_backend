@@ -1,4 +1,4 @@
-name: Push postservice
+name: Push GroupService
 
 on:
   push:
@@ -44,4 +44,4 @@ jobs:
       with:
         context: 'S3P2_project/GroupService'
         push: true
-        tags: ${{ secrets.DOCKER_USERNAME }}/s3p2_groupBackend:latest
+        tags: ${{ secrets.DOCKER_USERNAME }}/s3p2_groupbackend:latest
