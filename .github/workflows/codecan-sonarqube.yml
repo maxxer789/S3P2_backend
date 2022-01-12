@@ -13,7 +13,7 @@ jobs:
     - name: SonarQube Scan
       uses: kitabisa/sonarqube-action@v1.1.1
       with:
-        host: http://localhost:9000
+        host: "http://localhost:9000"
         login: ${{secrets.SONARQUBE_TOKEN}}
-        projectKey: S3I_project
+        projectKey: "S3I_project"
 
