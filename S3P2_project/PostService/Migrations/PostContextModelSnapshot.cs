@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PostService.Context;
 
-namespace PostService.Migrations
+namespace Service.Migrations
 {
     [DbContext(typeof(PostContext))]
     partial class PostContextModelSnapshot : ModelSnapshot

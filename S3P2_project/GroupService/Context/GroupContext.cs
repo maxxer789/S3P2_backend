@@ -1,8 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using GroupService.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace GroupService.Context
 {
@@ -12,5 +9,7 @@ namespace GroupService.Context
         {
 
         }
+        public virtual DbSet<Group> Groups { get; set; }
+        public virtual DbSet<Message> GroupMessages { get; set; }
     }
 }

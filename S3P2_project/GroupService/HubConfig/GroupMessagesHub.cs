@@ -34,9 +34,9 @@ namespace GroupService.HubConfig
             return Groups.RemoveFromGroupAsync(Context.ConnectionId, groupName);
         }
 
-        public async Task SendMessageToGroup(string groupName, string message)
+        public async Task SendMessageToGroup(string groupId, string message)
         {
-            await Clients.Group(groupName).SendAsync("groupsMessage", message);
+            await Clients.Group(groupId).SendAsync("groupsMessage", message);
         }
     }
 }

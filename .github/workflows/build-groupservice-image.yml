@@ -6,19 +6,19 @@ on:
     - main
     - Development
     path:
-    - "S3P2_project/PostService/**"
+    - "S3P2_project/GroupService/**"
     - "S3P2_project/PostService.Tests/**"
-    - ".github/workflows/build-postservice-image.yml"
+    - ".github/workflows/build-groupservice-image.yml"
   pull_request:
     branches: 
     - main
     - Development
     path:
-    - "S3P2_project/PostService/**"
+    - "S3P2_project/GroupService/**"
     - "S3P2_project/PostService.Tests/**"
 
 env:
-  PROJECT_PATH: 'S3P2_project/PostService/PostService.csproj'
+  PROJECT_PATH: 'S3P2_project/GroupService/GroupService.csproj'
   TEST_PATH: 'S3P2_project/PostService.Tests/Service.Tests.csproj'
 
 jobs:

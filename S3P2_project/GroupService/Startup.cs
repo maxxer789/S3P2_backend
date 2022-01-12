@@ -1,11 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
+using AccountService.Models;
 using GroupService.Context;
 using GroupService.HubConfig;
 using GroupService.Logic;
 using GroupService.Repositories;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -15,6 +18,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.Tokens;
 
 namespace GroupService
 {
@@ -30,6 +34,8 @@ namespace GroupService
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.Configure<TokenSettings>(Configuration.GetSection("SecretKeys"));
+
             services.AddControllers();
             services.AddAutoMapper(typeof(Startup));
 
@@ -44,6 +50,24 @@ namespace GroupService
             services.AddDbContext<GroupContext>(options =>
             {
                 options.UseSqlServer(Configuration.GetConnectionString("Connectionstring"));
+            });
+
+            services.AddAuthentication(opt =>
+            {
+                opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                opt.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+            .AddJwtBearer(options =>
+            {
+                options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+                {
+                    ValidateIssuer = false,
+                    ValidateAudience = false,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration.GetSection("SecretKeys")["JWTKey"])),
+                };
             });
 
             services.AddSignalR(options =>
@@ -65,10 +89,12 @@ namespace GroupService
 
             app.UseHttpsRedirection();
 
+
             app.UseRouting();
 
             app.UseCors("CorsDevelopment");
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
